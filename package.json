@@ -24,9 +24,7 @@
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
     "react": ">=16",
-    "react-mde": "^10.0.3",
-    "react-router-dom": "^5.2.0",
-    "showdown": "^1.9.1"
+    "react-router-dom": "^5.2.0"
   },
   "husky": {
     "hooks": {
@@ -63,12 +61,14 @@
     "react-docgen-typescript-loader": "^3.7.2",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1",
-    "react-mde": "^10.1.0",
     "react-router-dom": "^5.2.0",
-    "showdown": "^1.9.1",
     "ts-loader": "^8.0.1",
     "tsdx": "^0.13.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "react-mde": "^10.1.0",
+    "showdown": "^1.9.1"
   }
 }
