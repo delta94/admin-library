@@ -3,4 +3,7 @@ export interface ApiResponse {
   error?: any;
 }
 
-export type GetItemsRequest = (offset: number, limit: number) => Promise<ApiResponse>;
+export type GetItemsRequest = (
+  offset: number,
+  limit: number,
+) => Promise<ApiResponse>;
