@@ -34,7 +34,7 @@ function useItemsList<T>(request: GetItemsRequest, itemName: string): Result<T> 
     setLoading(false);
   };
 
-  const onChangePage = (event: unknown, newPage: number) => {
+  const onChangePage = (_event: unknown, newPage: number) => {
     setPage(newPage);
   };
 
