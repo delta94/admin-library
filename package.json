@@ -38,7 +38,7 @@
     "trailingComma": "all"
   },
   "name": "admin-library",
-  "author": "Behuamuh",
+  "author": "Qilin Team",
   "module": "dist/admin-library.esm.js",
   "devDependencies": {
     "@babel/core": "^7.10.5",
