@@ -26,7 +26,7 @@ const MarkdownEditor = (props: Props) => {
         onChange={onChange}
         selectedTab={selectedTab}
         onTabChange={setSelectedTab}
-        generateMarkdownPreview={markdown =>
+        generateMarkdownPreview={(markdown: any) =>
           Promise.resolve(converter.makeHtml(markdown))
         }
       />
