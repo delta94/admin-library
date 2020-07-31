@@ -1,27 +1,21 @@
-import React, { useState, SyntheticEvent, ReactElement } from 'react';
+import React, { useState, SyntheticEvent } from 'react';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {
-  IconButton,
   Menu,
   MenuItem,
-  CircularProgress,
+  Button,
 } from '@material-ui/core';
+import { Profile } from 'types';
 
 interface Props {
   menuItems: { title: string; onClick: () => void }[];
-  user: any;
-  loginButton: ReactElement;
-  loading: boolean;
+  user: Profile;
 }
 
 const UserButton = (props: Props) => {
-  const { menuItems, user, loginButton, loading } = props;
+  const { menuItems, user } = props;
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const open = !!anchorEl;
-
-  if (loading) return <CircularProgress color="primary" />;
-
-  if (!user) return loginButton;
 
   const handleOpenMenu = (event: SyntheticEvent) => {
     setAnchorEl(event.currentTarget);
@@ -33,14 +27,18 @@ const UserButton = (props: Props) => {
 
   return (
     <div>
-      <IconButton onClick={handleOpenMenu} color="inherit">
-        <AccountCircle />
-      </IconButton>
+      <Button
+        onClick={handleOpenMenu}
+        color="inherit"
+        startIcon={<AccountCircle />}
+      >
+        {user.username}
+      </Button>
       <Menu
         anchorEl={anchorEl}
         anchorOrigin={{
           vertical: 'top',
-          horizontal: 'right',
+          horizontal: 'center',
         }}
         keepMounted
         transformOrigin={{
