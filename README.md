@@ -1,4 +1,4 @@
-# Qilin Store library
+# Qilin Admin library
 
 ## Build
 
@@ -9,47 +9,15 @@ yarn build
 ## Install in ohther project
 
 ```bash
-yarn add https://github.com/qilin/store-library#version-tag
-```
-
-## Usage
-
-```tsx
-import React from "react";
-import { Skeleton, VkontakteIcon, H2Bold, COLORS, Grid } from "store-library";
-
-const { RED_500, GRAY_900, GRAY_700 } = COLORS;
-
-class Example extends React.Component {
-  render() {
-    return (
-      <div style={{ backgroundColor: RED_500 }}>
-        <H2Bold>Hello world!</H2Bold>
-        <Grid.Row gap="20px">
-          <Grid.Col xs={6} md={3} lg={2}>
-            <Skeleton from={GRAY_700} to={GRAY_900} />
-          </Grid.Col>
-          <Grid.Col xs={6} md={3} lg={2}>
-            <Skeleton from={GRAY_700} to={GRAY_900} />
-          </Grid.Col>
-          <Grid.Col xs={6} md={3} lg={2}>
-            <Skeleton from={GRAY_700} to={GRAY_900} />
-          </Grid.Col>
-        </Grid.Row>
-        <VkontakteIcon />
-      </div>
-    );
-  }
-}
-
+yarn add https://github.com/qilin/admin-library#version-tag
 ```
 
 ## Development
 
-In Store library
+In Admin library
 
 ```bash
-cd store-library
+cd admin-library
 yarn link
 
 cd node_modules/react
@@ -64,10 +32,10 @@ In you project
 ```bash
 yarn link react
 yarn link react-dom
-yarn link store-library
+yarn link admin-library
 ```
 
-In Store library
+In Admin library
 
 ```bash
 yarn start
@@ -87,7 +55,7 @@ git push --tags
 In you project
 
 ```bash
-yarn add https://github.com/qilin/store-library#new-version
+yarn add https://github.com/qilin/admin-library#new-version
 ```
 
 ## License
