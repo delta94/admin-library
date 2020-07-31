@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import { IconDummy } from 'assets/icons';
+import { useTranslation } from 'react-i18next';
 
 import { useStyles } from './styles';
-import { useTranslation } from 'react-i18next';
 
 interface Props {
   onLogin: () => void;
