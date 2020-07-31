@@ -1,6 +1,8 @@
 export const createGETRequest = (url: string) => async () => {
   try {
-    const res = await fetch(url);
+    const res = await fetch(url, {
+      credentials: 'include',
+    });
     const json = await res.json();
 
     if (res.status !== 200) throw new Error(json.error);
@@ -15,6 +17,7 @@ export const createPOSTRequest = (url: string) => async (data: any) => {
   try {
     const res = await fetch(url, {
       method: 'POST',
+      credentials: 'include',
       headers: {
         'Content-Type': 'application/json',
       },

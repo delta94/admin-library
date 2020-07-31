@@ -1,12 +1,7 @@
-import React, { ReactNode, ReactElement } from 'react';
-import { Link } from 'react-router-dom';
+import React, { ReactNode } from 'react';
 import {
   AppBar,
   Divider,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   CssBaseline,
   Toolbar,
   IconButton,
@@ -18,20 +13,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 
 import { useStyles } from './styles';
 
-interface NavLink {
-  title: string;
-  href: string;
-  icon: ReactElement;
-}
-
 interface Props {
   children: ReactNode;
+  navLinks: ReactNode;
+  userMenu?: ReactNode;
   storeName: string;
-  navLinks: NavLink[];
 }
 
 const Layout = (props: Props) => {
-  const { children, storeName, navLinks } = props;
+  const { children, storeName, navLinks, userMenu = null } = props;
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -43,16 +33,7 @@ const Layout = (props: Props) => {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
-        {navLinks.map(({ title, href, icon }) => (
-          <Link to={href} className={classes.menuLink} key={title}>
-            <ListItem button>
-              <ListItemIcon>{icon}</ListItemIcon>
-              <ListItemText primary={title} />
-            </ListItem>
-          </Link>
-        ))}
-      </List>
+      {navLinks}
     </div>
   );
 
@@ -75,6 +56,7 @@ const Layout = (props: Props) => {
           <Typography variant="h6" noWrap>
             {storeName}
           </Typography>
+          <div className={classes.userMenu}>{userMenu}</div>
         </Toolbar>
       </AppBar>
       <nav className={classes.drawer}>

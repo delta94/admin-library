@@ -25,11 +25,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         display: 'none',
       },
     },
-    menuLink: {
-      color: 'inherit',
-      textTransform: 'capitalize',
-      textDecoration: 'none',
-    },
     // necessary for content to be below app bar
     toolbar: theme.mixins.toolbar,
     drawerPaper: {
@@ -38,6 +33,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     content: {
       flexGrow: 1,
       padding: theme.spacing(3),
+    },
+    userMenu: {
+      marginLeft: 'auto',
     },
   }),
 );
