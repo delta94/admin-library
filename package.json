@@ -26,6 +26,7 @@
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
+    "styled-components": "^5.1.1",
     "react": ">=16",
     "react-router-dom": "^5.2.0"
   },
@@ -70,6 +71,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.22.0",
     "rollup-plugin-url": "^2.2.2",
+    "styled-components": "^5.1.1",
     "ts-jest": "24.0.2",
     "typescript": "^3.5.2"
   },
