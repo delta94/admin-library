@@ -6,6 +6,12 @@ const colorStyles = css<{ color?: string }>`
   color: ${({ color = WHITE }) => color};
 `;
 
+export const textOverflowStyles = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
 export const Body = styled.span<{ color?: string }>`
   ${colorStyles}
   font-size: 13px;
@@ -37,6 +43,12 @@ export const H3Bold = styled(H3)`
 export const H3_14 = styled(H3)`
   font-size: 13px;
   line-height: 20px;
+`;
+
+export const Caption14 = styled.span<{ color?: string }>`
+  ${colorStyles}
+  font-size: 14px;
+  line-height: 22px;
 `;
 
 export const Caption13 = styled.span<{ color?: string }>`
@@ -77,7 +89,7 @@ export const Caption11Bold = styled(Caption11)`
 export const Caption12 = styled.span<{ color?: string }>`
   ${colorStyles}
   font-size: 12px;
-  line-height: 16px;
+  line-height: 18px;
 `;
 
 export const Caption12Bold = styled(Caption12)`

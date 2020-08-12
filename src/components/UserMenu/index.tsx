@@ -1,21 +1,26 @@
 import React, { useState, SyntheticEvent } from 'react';
-import AccountCircle from '@material-ui/icons/AccountCircle';
+import NotificationsIcon from '@material-ui/icons/NotificationsNoneRounded';
 import {
   Menu,
   MenuItem,
-  Button,
+  Avatar,
+  Badge,
 } from '@material-ui/core';
 import { Profile } from 'types';
+import styled from 'styled-components';
+import { Caption14, Caption12, GRAY_100, textOverflowStyles } from 'styles';
 
 interface Props {
   menuItems: { title: string; onClick: () => void }[];
-  user: Profile;
+  user: Profile | null;
 }
 
 const UserButton = (props: Props) => {
   const { menuItems, user } = props;
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const open = !!anchorEl;
+
+  if (!user) return null;
 
   const handleOpenMenu = (event: SyntheticEvent) => {
     setAnchorEl(event.currentTarget);
@@ -25,21 +30,30 @@ const UserButton = (props: Props) => {
     setAnchorEl(null);
   };
 
+  const handleNotificationsClick = (e: SyntheticEvent) => {
+    e.stopPropagation();
+
+    console.log('Notifications clicked');
+  };
+
   return (
     <div>
-      <Button
-        onClick={handleOpenMenu}
-        color="inherit"
-        startIcon={<AccountCircle />}
-      >
-        {user.username}
-      </Button>
+      <User onClick={handleOpenMenu}>
+        <StyledAvatar alt={user.username} src={user.photo_url} />
+        <UserText>
+          <UserName>
+            {user.username}
+          </UserName>
+          <CompanyName color={GRAY_100}>
+            No company name
+          </CompanyName>
+        </UserText>
+        <StyledBadge onClick={handleNotificationsClick} badgeContent={5} color="secondary">
+          <NotificationsIcon />
+        </StyledBadge>
+      </User>
       <Menu
         anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'center',
-        }}
         keepMounted
         transformOrigin={{
           vertical: 'top',
@@ -59,3 +73,35 @@ const UserButton = (props: Props) => {
 };
 
 export default React.memo(UserButton);
+
+const StyledAvatar = styled(Avatar)`
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+`;
+
+const User = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const UserText = styled.div`
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+`;
+
+const StyledBadge = styled(Badge)`
+  flex-shrink: 0;
+`;
+
+const UserName = styled(Caption14)`
+  ${textOverflowStyles}
+`;
+
+const CompanyName = styled(Caption12)`
+  ${textOverflowStyles}
+`;
