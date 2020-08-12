@@ -23,6 +23,14 @@ export default {
     done: 'Done',
     login: 'Login',
     logout: 'Logout',
+    layout: {
+      confidential_information: 'This restricted access page contains confidential information. You must have a non-disclosure and/or license agreement covering confidential information to use or access this page.',
+      onboarding: {
+        title: 'Complete Onboarding',
+        description: 'We are ready to sign contract and accept your first games. Please provide all the necessary information about your company and banking details to sign the contract.',
+        button_text: 'Complete Onboarding',
+      },
+    },
     login_page: {
       title: 'Unsigned user can’t browse any projects',
       description: 'Please create new account on sign in if you have one',
@@ -247,6 +255,15 @@ export default {
           summary: 'Summary',
         },
       },
+    },
+    dashboard: {
+      name: 'Dashboard',
+    },
+    company_settings: {
+      name: 'Company settings',
+    },
+    support: {
+      name: 'Support',
     },
   },
 };

@@ -14,3 +14,5 @@ export const RED_500 = '#F24949';
 export const GREEN_500 = '#50C750';
 
 export const ORANGE_500 = '#FAB425';
+
+export const WHITE = '#FFFFFF';

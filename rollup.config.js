@@ -6,6 +6,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import url from 'rollup-plugin-url';
 import svgr from '@svgr/rollup';
 import json from '@rollup/plugin-json';
+import babel from 'rollup-plugin-babel';
 
 import pkg from './package.json';
 
@@ -27,6 +28,10 @@ export default {
   ],
   plugins: [
     external(),
+    babel({
+      exclude: 'node_modules/**',
+      plugins: ['babel-plugin-styled-components'],
+    }),
     postcss({
       modules: false,
       extract: true,
