@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
-import { WHITE, PURPLE_500, PURPLE_400 } from './colors';
 import { Button } from '@material-ui/core';
+
+import { WHITE, PURPLE_500, PURPLE_400 } from './colors';
 
 const colorStyles = css<{ color?: string }>`
   color: ${({ color = WHITE }) => color};
