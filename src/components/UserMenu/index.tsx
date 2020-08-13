@@ -9,14 +9,17 @@ import {
 import { Profile } from 'types';
 import styled from 'styled-components';
 import { Caption14, Caption12, GRAY_100, textOverflowStyles } from 'styles';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   menuItems: { title: string; onClick: () => void }[];
   user: Profile | null;
+  companyName?: string;
 }
 
 const UserButton = (props: Props) => {
-  const { menuItems, user } = props;
+  const { t } = useTranslation();
+  const { menuItems, user, companyName = t('no_company_name') } = props;
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const open = !!anchorEl;
 
@@ -45,7 +48,7 @@ const UserButton = (props: Props) => {
             {user.username}
           </UserName>
           <CompanyName color={GRAY_100}>
-            No company name
+            {companyName}
           </CompanyName>
         </UserText>
         <StyledBadge onClick={handleNotificationsClick} badgeContent={5} color="secondary">

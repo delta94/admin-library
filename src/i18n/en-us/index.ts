@@ -23,6 +23,7 @@ export default {
     done: 'Done',
     login: 'Login',
     logout: 'Logout',
+    no_company_name: 'No company name',
     layout: {
       confidential_information: 'This restricted access page contains confidential information. You must have a non-disclosure and/or license agreement covering confidential information to use or access this page.',
       onboarding: {
