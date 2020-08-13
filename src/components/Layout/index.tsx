@@ -34,6 +34,7 @@ export default React.memo(Layout);
 
 const Wrapper = styled.div`
   display: flex;
+  height: 100%;
   background-color: ${BLACK_900};
   color: ${WHITE};
 `;
