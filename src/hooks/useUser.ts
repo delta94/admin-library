@@ -1,7 +1,13 @@
 import { ApiResponse, Profile } from 'types';
 import { useState, useEffect } from 'react';
 
-export default (request: () => Promise<ApiResponse>) => {
+interface Result {
+  user: Profile | null;
+  loading: boolean;
+  getUser: () => void;
+}
+
+export default (request: () => Promise<ApiResponse>): Result => {
   const [user, setUser] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +18,7 @@ export default (request: () => Promise<ApiResponse>) => {
 
     if (error) return;
 
-    setUser(json);
+    setUser(json as Profile);
   };
 
   useEffect(() => {

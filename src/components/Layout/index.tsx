@@ -1,101 +1,55 @@
 import React, { ReactNode } from 'react';
-import {
-  AppBar,
-  Divider,
-  CssBaseline,
-  Toolbar,
-  IconButton,
-  Typography,
-  Hidden,
-  Drawer,
-} from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import styled from 'styled-components';
+import { BLACK_900, WHITE, BLACK_800 } from 'styles';
 
-import { useStyles } from './styles';
+import theme from './theme';
 
 interface Props {
   children: ReactNode;
-  navLinks: ReactNode;
-  userMenu?: ReactNode;
-  storeName: string;
+  sidebar: ReactNode;
 }
 
 const Layout = (props: Props) => {
-  const { children, storeName, navLinks, userMenu = null } = props;
-  const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
-
-  const drawer = (
-    <div>
-      <div className={classes.toolbar} />
-      <Divider />
-      {navLinks}
-    </div>
-  );
-
-  const container = document.body;
+  const { children, sidebar } = props;
 
   return (
-    <div className={classes.root}>
-      <CssBaseline />
-      <AppBar position="fixed" className={classes.appBar} color="default">
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            className={classes.menuButton}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap>
-            {storeName}
-          </Typography>
-          <div className={classes.userMenu}>{userMenu}</div>
-        </Toolbar>
-      </AppBar>
-      <nav className={classes.drawer}>
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden smUp implementation="css">
-          <Drawer
-            container={container}
-            variant="temporary"
-            anchor="right"
-            open={mobileOpen}
-            onClose={handleDrawerToggle}
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
-            }}
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-        <Hidden xsDown implementation="css">
-          <Drawer
-            classes={{
-              paper: classes.drawerPaper,
-            }}
-            variant="permanent"
-            open
-          >
-            {drawer}
-          </Drawer>
-        </Hidden>
-      </nav>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        {children}
-      </main>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Wrapper>
+        <CssBaseline />
+        <Sidebar>
+          {sidebar}
+        </Sidebar>
+        <ContentWrapper>
+          <Main>
+            {children}
+          </Main>
+        </ContentWrapper>
+      </Wrapper>
+    </ThemeProvider>
   );
 };
 
 export default React.memo(Layout);
+
+const Wrapper = styled.div`
+  display: flex;
+  background-color: ${BLACK_900};
+  color: ${WHITE};
+`;
+
+const Sidebar = styled.aside`
+  width: 260px;
+  height: 900px;
+  background-color: ${BLACK_800};
+  flex-shrink: 0;
+`;
+
+const ContentWrapper = styled.div`
+  flex-grow: 1;
+  padding: 8px;
+`;
+
+const Main = styled.main`
+  background-color: ${BLACK_800};
+`;
