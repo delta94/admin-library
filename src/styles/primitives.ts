@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button } from '@material-ui/core';
 
-import { WHITE, PURPLE_500, PURPLE_400 } from './colors';
+import { WHITE, PURPLE_500, PURPLE_400, PURPLE_600 } from './colors';
 
 const colorStyles = css<{ color?: string }>`
   color: ${({ color = WHITE }) => color};
@@ -17,6 +17,13 @@ export const Body = styled.span<{ color?: string }>`
   ${colorStyles}
   font-size: 13px;
   font-weight: bold;
+`;
+
+export const H1 = styled.h1<{ color?: string }>`
+  ${colorStyles}
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 32px;
 `;
 
 export const H2 = styled.h2<{ color?: string }>`
@@ -139,14 +146,34 @@ export const Caps14Bold = styled(Caps)`
 `;
 
 export const PurpleButton = styled(Button).attrs({ variant: 'contained', color: 'primary' })`
-  background: ${PURPLE_500};
+  && {
+    background: ${PURPLE_500};
+    border-radius: 2px;
+    font-size: 10px;
+    line-height: 16px;
+    color: ${WHITE};
+
+    :hover {
+      background: ${PURPLE_600};
+    }
+  }
+`;
+
+export const PurpleOutlinedButton = styled(Button)`
+&& {
   border-radius: 2px;
   font-size: 12px;
   line-height: 18px;
-  color: ${WHITE};
+  color: ${PURPLE_400};
   text-transform: capitalize;
+  color: ${PURPLE_400};
+  background: transparent;
+  border: 1px solid ${PURPLE_400};
+  padding: 2px 12px;
 
   :hover {
     background: ${PURPLE_400};
+    color: ${WHITE};
   }
+}
 `;

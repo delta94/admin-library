@@ -78,9 +78,10 @@ const UserButton = (props: Props) => {
 export default React.memo(UserButton);
 
 const StyledAvatar = styled(Avatar)`
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
+  && {
+    width: 32px;
+    height: 32px;
+  }
 `;
 
 const User = styled.div`
@@ -90,7 +91,7 @@ const User = styled.div`
 `;
 
 const UserText = styled.div`
-  padding: 0 10px;
+  padding: 0 8px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;

@@ -6,6 +6,7 @@ export const BLACK_600 = '#4E5157';
 export const GRAY_200 = '#6E727A';
 export const GRAY_100 = '#83878F';
 
+export const PURPLE_600 = '#665ACC';
 export const PURPLE_500 = '#7265E5';
 export const PURPLE_400 = '#7F70FF';
 

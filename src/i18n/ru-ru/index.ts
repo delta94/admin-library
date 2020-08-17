@@ -45,9 +45,10 @@ export default {
     },
     games: {
       edit: 'Edit game',
-      create: 'Create new game',
+      create: 'Adding new game',
       name: 'Games',
-      description: 'Here you can customize the look and feel of your game page in the store. Fields marked with * are mandatory',
+      description: 'Select an app to view and edit details such as store data, analytic data, and sales reports. You might have different permissions for different apps, depending on the permissions granted by administrators in your partner account.',
+      add_game: 'Add game',
       fields: {
         title: 'Title',
         slug: 'Slug',
@@ -178,6 +179,16 @@ export default {
         description: 'Description',
         rating: 'Rating',
         media: 'Media',
+      },
+      review_quality_guidelines: {
+        title: 'Creating your title',
+        description: 'Looking for help or suggestions in creating your title? Click Review Quality Guidelines to review our quality guidelines before posting your project.',
+        button_text: 'Review Quality Guidelines',
+      },
+      get_pricing_help: {
+        title: 'Help & guidelines',
+        description: 'Looking for help or suggestions in pricing? Below is a link to some common guidelines.',
+        button_text: 'Get Pricing Help',
       },
     },
     storefronts: {
