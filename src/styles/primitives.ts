@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Button } from '@material-ui/core';
 
-import { WHITE, PURPLE_500, PURPLE_400, PURPLE_600 } from './colors';
+import { WHITE, PURPLE_500, PURPLE_400, PURPLE_600, RED_500, GRAY_100, BLACK_700 } from './colors';
 
 const colorStyles = css<{ color?: string }>`
   color: ${({ color = WHITE }) => color};
@@ -176,4 +176,71 @@ export const PurpleOutlinedButton = styled(Button)`
     color: ${WHITE};
   }
 }
+`;
+
+export const Input = styled.input<{ error?: boolean }>`
+  background-color: ${BLACK_700};
+  color: ${WHITE};
+  height: 40px;
+  font-size: 14px;
+  line-height: 22px;
+  border-radius: 2px;
+  border: none;
+  padding: 0 12px;
+  outline: none;
+  width: 100%;
+
+  ::placeholder {
+    color: ${GRAY_100};
+  }
+
+  ${({ error }) => error && `
+    border-bottom: 1px solid ${RED_500};
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  `}
+
+  ::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }
+`;
+
+export const Switch = styled.input.attrs({ type: 'checkbox' })<{ color?: string }>`
+  position: relative;
+  width: 36px;
+  height: 20px;
+  margin: 0;
+  vertical-align: top;
+
+  background: #ffffff;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: all 0.3s ease-in-out;
+
+  ::after {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 3px;
+    width: 14px;
+    height: 14px;
+    background-color: ${({ color = PURPLE_500 }) => color};
+    border-radius: 50%;
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  :checked {
+    background-color: ${({ color = PURPLE_500 }) => color};
+
+    ::after {
+      transform: translateX(calc(100% + 3px));
+      background-color: ${WHITE};  
+    }
+  }
 `;

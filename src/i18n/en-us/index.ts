@@ -25,6 +25,10 @@ export default {
     login: 'Login',
     logout: 'Logout',
     no_company_name: 'No company name',
+    errors: {
+      empty_field: 'Empty field',
+      not_url: 'Enter URL please',
+    },
     layout: {
       confidential_information: 'This restricted access page contains confidential information. You must have a non-disclosure and/or license agreement covering confidential information to use or access this page.',
       onboarding: {
@@ -44,6 +48,29 @@ export default {
       deu: 'German',
       esp: 'Spanish',
     },
+    game: {
+      tabs: {
+        general: 'General',
+        descriptions: 'Descriptions',
+        rating: 'Rating',
+        media: 'Media',
+        price: 'Price',
+        sales: 'Sales',
+        publish: 'Publish',
+      },
+      general: {
+        title: 'General',
+        description_start: 'Here you can customize the look and feel of your game page in the store. Fields marked with ',
+        description_end: ' are mandatory.',
+      },
+      fields: {
+        title: 'Game title',
+        releaseDate: {
+          label: 'Release Date',
+          description: 'Setup release date in your local time zone. If you set this date in the future then we’ll restrict activation until the release date has passed. If not yet released, show \'coming soon\' box on store page. ',
+        },
+      },
+    },
     games: {
       edit: 'Edit game',
       create: 'Adding new game',
@@ -58,7 +85,6 @@ export default {
       status: 'Status',
       no_games_yet: 'No game has been added yet',
       fields: {
-        title: 'Title',
         url: 'URL',
         type: 'Type',
         developers: {
@@ -90,11 +116,6 @@ export default {
           label: 'Tags',
           description: `Any other genre keywords describes your game. Avoid using the genre or platforms provided above.
           `,
-        },
-        releaseDate: {
-          label: 'Release Date',
-          description: `Setup release date in your local time zone.
-          If you set this date in the future then we'll restrict activation until the release date has passed. `,
         },
         featuresSupported: {
           label: 'Features',
@@ -181,12 +202,6 @@ export default {
           covers: 'Covers',
           trailer: 'Trailer',
         },
-      },
-      tabs: {
-        general: 'General',
-        description: 'Description',
-        rating: 'Rating',
-        media: 'Media',
       },
       review_quality_guidelines: {
         title: 'Creating your title',
