@@ -1,52 +1,53 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
-import { WHITE, Caption13, GRAY_100, Caps10, BLACK_600 } from 'styles';
+import { Caption14, BLACK_650, BLACK_800 } from 'styles';
 import { ArrowDownIcon } from 'assets/icons';
+import { SelectOption } from 'types';
 
-import Options from './Options';
-import { optionStyles, IconWrapper } from './styles';
-
-interface Option {
-  value: string;
-  title: string;
-}
+import Option from './Option';
 
 interface Props {
   name: string;
-  label: string;
-  options: Option[];
-  value: Option;
-  onChange: (name: string, value: Option) => void;
+  options: SelectOption[];
+  value: SelectOption;
+  onChange: (name: string, value: SelectOption) => void;
   className?: string;
 }
 
 const Select = (props: Props) => {
-  const { options, onChange, label, name, value: selectedOption, className } = props;
-  const [isOpen, setOpen] = useState(false);
-  const { t } = useTranslation();
-  const { title } = selectedOption;
+  const { options, onChange, name, value, className } = props;
+  const [open, setOpen] = useState(false);
 
-  const handleSelect = (option: Option) => {
+  const handleSelect = (option: SelectOption) => {
     onChange(name, option);
     setOpen(false);
   };
 
   const toggleOpen = () => {
-    setOpen(!isOpen);
+    setOpen(!open);
   };
+
+  const handleBlur = () => setOpen(false);
 
   return (
     <Wrapper className={className}>
-      <Label>{label}</Label>
-      <OptionWrapper onBlur={() => setOpen(false)} tabIndex={1}>
+      <OptionWrapper onBlur={handleBlur} tabIndex={1}>
         <SelectedOption onClick={toggleOpen}>
-          <Caption13>{t(title)}</Caption13>
+          <Caption14>{value.title}</Caption14>
           <IconWrapper>
-            <StyledIcon open={isOpen} />
+            <StyledIcon open={open} />
           </IconWrapper>
         </SelectedOption>
-        {isOpen && <Options options={options} selectedOption={selectedOption} onSelect={handleSelect} />}
+        <Options open={open}>
+          {options.map(option => (
+            <Option
+              key={option.value}
+              isSelected={value.value === option.value}
+              option={option}
+              onSelect={handleSelect}
+            />
+          ))}
+        </Options>
       </OptionWrapper>
     </Wrapper>
   );
@@ -57,29 +58,48 @@ export default React.memo(Select);
 const Wrapper = styled.div``;
 
 const OptionWrapper = styled.div`
-  margin-top: 4px;
   position: relative;
   outline: none;
 `;
 
-const Label = styled(Caps10)`
-  color: ${GRAY_100};
-`;
-
 const SelectedOption = styled.div`
-  ${optionStyles}
-  border: 1px solid ${BLACK_600};
-  background: transparent;
-  border-radius: 4px;
-
-  ::before {
-    display: none;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 2px;
+  background-color: ${BLACK_650};
 `;
 
 const StyledIcon = styled(ArrowDownIcon) <{ open: boolean }>`
+  transition: all 0.3s ease-in-out;
+
   ${({ open }) => open && `
-    transform: rotateX(180deg);
-    fill: ${WHITE};
+    transform: rotate(180deg);
   `}
+`;
+
+const Options = styled.div<{ open: boolean }>`
+  position: absolute;
+  display: ${({ open }) => open ? 'flex' : 'none'};
+  margin-top: 4px;
+  z-index: 2;
+  top: 100%;
+  left: 0;
+  right: 0;
+  flex-direction: column;
+  border-radius: 4px;
+  max-height: 216px;
+  overflow-y: auto;
+  padding: 15px 12px;
+  background-color: ${BLACK_800};
+`;
+
+const IconWrapper = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

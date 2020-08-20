@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import styled from 'styled-components';
-import { BLACK_900, WHITE, BLACK_800, BLACK_700 } from 'styles';
+import { BLACK_900, WHITE, BLACK_700 } from 'styles';
 
 interface Props {
   children: ReactNode;

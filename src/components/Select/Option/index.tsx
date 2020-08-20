@@ -1,29 +1,42 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useTranslation } from 'react-i18next';
-import { Caption13, GRAY_100, WHITE } from 'styles';
+import { Caption12, GRAY_100, WHITE } from 'styles';
 import { SelectOption } from 'types';
 
-import { optionStyles } from '../styles';
-
-interface Props extends SelectOption {
+interface Props {
+  option: SelectOption;
   isSelected: boolean;
-  onSelect: () => void;
+  onSelect: (option: SelectOption) => void;
 }
 
 const Option = (props: Props) => {
-  const { onSelect, value, title, isSelected } = props;
-  const { t } = useTranslation();
+  const { onSelect, option, isSelected } = props;
+
+  const handleSelect = () => {
+    onSelect(option);
+  };
 
   return (
-    <Wrapper key={value} onClick={onSelect}>
-      <Caption13 color={isSelected ? WHITE : GRAY_100}>{t(title)}</Caption13>
+    <Wrapper 
+      onClick={handleSelect}
+      color={isSelected ? GRAY_100 : WHITE}
+    >
+      {option.title}
     </Wrapper>
   );
 };
 
 export default React.memo(Option);
 
-const Wrapper = styled.div`
-  ${optionStyles}
+const Wrapper = styled(Caption12)`
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  :hover {
+    opacity: 0.6;
+  }
 `;

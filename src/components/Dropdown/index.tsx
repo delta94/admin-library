@@ -86,7 +86,7 @@ const Menu = styled.div<{ open: boolean }>`
   border-radius: 2px;
   display: ${({ open }) => open ? 'block' : 'none'};
   width: 200px;
-  height: 216px;
+  max-height: 216px;
   overflow-y: auto;
 `;
 
