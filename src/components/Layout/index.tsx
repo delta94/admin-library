@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { CssBaseline } from '@material-ui/core';
 import styled from 'styled-components';
-import { BLACK_900, WHITE, BLACK_800 } from 'styles';
+import { BLACK_900, WHITE, BLACK_800, BLACK_700 } from 'styles';
 
 interface Props {
   children: ReactNode;
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
 const Sidebar = styled.aside`
   width: 260px;
   height: 900px;
-  background-color: ${BLACK_800};
+  background-color: ${BLACK_700};
   flex-shrink: 0;
 `;
 
@@ -49,6 +49,6 @@ const ContentWrapper = styled.div`
 `;
 
 const Main = styled.main`
-  background-color: ${BLACK_800};
+  background-color: ${BLACK_700};
   min-height: 884px;
 `;

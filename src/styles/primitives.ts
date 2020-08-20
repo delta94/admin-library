@@ -1,7 +1,17 @@
 import styled, { css } from 'styled-components';
 import { Button } from '@material-ui/core';
 
-import { WHITE, PURPLE_500, PURPLE_400, PURPLE_600, RED_500, GRAY_100, BLACK_700 } from './colors';
+import {
+  WHITE,
+  PURPLE_500,
+  PURPLE_400,
+  PURPLE_600,
+  RED_500,
+  GRAY_100,
+  BLACK_600,
+  GRAY_200,
+  BLACK_650,
+} from './colors';
 
 const colorStyles = css<{ color?: string }>`
   color: ${({ color = WHITE }) => color};
@@ -179,7 +189,7 @@ export const PurpleOutlinedButton = styled(Button)`
 `;
 
 export const Input = styled.input<{ error?: boolean }>`
-  background-color: ${BLACK_700};
+  background-color: ${BLACK_650};
   color: ${WHITE};
   height: 40px;
   font-size: 14px;
@@ -205,14 +215,14 @@ export const Input = styled.input<{ error?: boolean }>`
   }
 `;
 
-export const Switch = styled.input.attrs({ type: 'checkbox' })<{ color?: string }>`
+export const Switch = styled.input.attrs({ type: 'checkbox' })`
   position: relative;
   width: 36px;
   height: 20px;
   margin: 0;
   vertical-align: top;
 
-  background: #ffffff;
+  background: ${BLACK_600};
   border-radius: 15px;
   outline: none;
   cursor: pointer;
@@ -229,14 +239,14 @@ export const Switch = styled.input.attrs({ type: 'checkbox' })<{ color?: string 
     top: 3px;
     width: 14px;
     height: 14px;
-    background-color: ${({ color = PURPLE_500 }) => color};
+    background-color: ${GRAY_200};
     border-radius: 50%;
     transform: translateX(0);
     transition: all 0.3s ease-in-out;
   }
 
   :checked {
-    background-color: ${({ color = PURPLE_500 }) => color};
+    background-color: ${PURPLE_500};
 
     ::after {
       transform: translateX(calc(100% + 3px));

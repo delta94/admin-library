@@ -68,6 +68,7 @@ export default {
         releaseDate: {
           label: 'Release Date',
           description: 'Setup release date in your local time zone. If you set this date in the future then we’ll restrict activation until the release date has passed. If not yet released, show \'coming soon\' box on store page. ',
+          display_time: 'Display remaining time before the release',
         },
       },
     },
