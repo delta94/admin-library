@@ -1,0 +1,50 @@
+import React from 'react';
+import styled from 'styled-components';
+import { BLACK_800 } from 'styles';
+import { Tag as TagType } from 'types';
+
+import Tag from './components/Tag';
+
+interface Props {
+  className?: string;
+  tags: TagType[];
+  selected: number[];
+  onChange: (newSelected: number[]) => void;
+}
+
+const TagList = (props: Props) => {
+  const { className, tags, selected, onChange } = props;
+
+  const handleClick = (tag: TagType) => {
+    const newSelected = selected.includes(tag.id)
+      ? selected.filter(id => id !== tag.id)
+      : [...selected, tag.id];
+    
+    onChange(newSelected);
+  };
+
+  return (
+    <Wrapper className={className}>
+      {tags.map(tag => (
+        <Tag
+          key={tag.id}
+          tag={tag}
+          selected={!!selected.find(id => tag.id === id)}
+          onClick={handleClick}
+        />
+      ))}
+    </Wrapper>
+  );
+};
+
+const areEqual = (prev: Props, next: Props) => prev === next;
+
+export default React.memo(TagList, areEqual);
+
+const Wrapper = styled.div`
+  width: 200px;
+  max-height: 216px;
+  background: ${BLACK_800};
+  border-radius: 2px;
+  padding: 15px 10px;
+`;

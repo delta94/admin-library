@@ -24,15 +24,22 @@ interface Props {
 }
 
 const Dropdown = (props: Props) => {
-  const { className, title, children, showToggleIcon = true, variant = 'default' } = props;
-  const [open, setIsOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const {
+    className,
+    title,
+    children,
+    showToggleIcon = true,
+    variant = 'default',
+  } = props;
 
   const toggleOpen = () => {
-    const newIsOpen = !open;
-    setIsOpen(newIsOpen);
+    setOpen(!open);
   };
 
-  const handleBlur = () => setIsOpen(false);
+  const handleBlur = () => {
+    setOpen(false);
+  };
 
   const titleColor = getTitleColor(open, variant);
   const titleBackgroundColor = getTitleBackground(open, variant);
@@ -66,7 +73,7 @@ const Wrapper = styled.div`
   cursor: pointer;
 `;
 
-const TitleWrapper = styled(Caption12)<{ backgoundColor: string }>`
+const TitleWrapper = styled(Caption12) <{ backgoundColor: string }>`
   background-color: ${({ backgoundColor }) => backgoundColor};
   display: flex;
   justify-content: space-between;
@@ -85,8 +92,6 @@ const Menu = styled.div<{ open: boolean }>`
   background-color: ${BLACK_800};
   border-radius: 2px;
   display: ${({ open }) => open ? 'block' : 'none'};
-  width: 200px;
-  max-height: 216px;
   overflow-y: auto;
 `;
 

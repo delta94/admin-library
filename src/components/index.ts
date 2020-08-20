@@ -5,3 +5,5 @@ export { default as MarkdownEditor } from './MarkdownEditor';
 export { default as UserMenu } from './UserMenu';
 export { default as Select } from './Select';
 export { default as Dropdown } from './Dropdown';
+export { default as TagList } from './TagList';
+export { default as TagsSelector } from './TagsSelector';
