@@ -88,7 +88,6 @@ const Menu = styled.div<{ open: boolean }>`
   top: 100%;
   left: 0;
   z-index: 5;
-  padding: 16px;
   background-color: ${BLACK_800};
   border-radius: 2px;
   display: ${({ open }) => open ? 'block' : 'none'};
