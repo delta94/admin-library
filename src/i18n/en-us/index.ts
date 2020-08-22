@@ -43,10 +43,9 @@ export default {
       buttonText: 'Sign In or Sign Up',
     },
     languages: {
-      eng: 'English',
-      rus: 'Russian',
-      deu: 'German',
-      esp: 'Spanish',
+      2: 'English',
+      1: 'Russian',
+      3: 'German',
     },
     game: {
       tabs: {
@@ -69,6 +68,25 @@ export default {
           label: 'Release Date',
           description: 'Setup release date in your local time zone. If you set this date in the future then we’ll restrict activation until the release date has passed. If not yet released, show \'coming soon\' box on store page. ',
           display_time: 'Display remaining time before the release',
+        },
+        tags: {
+          label: 'Tags',
+          description: 'Any other tags described your game. Avoid using genre or platforms provided above, max of 10.',
+        },
+        genres: {
+          label: 'Genre',
+          description: 'Select the primary category best describes your game. It will be listed in the navigation menu above the name of your product. You can pick additional tips with tags below. Select up to 3 additional genres describes your game.',
+        },
+        supported_languages: {
+          label: 'Supported Languages',
+          interface_description: ' - all in game menu and interface is displayed in this language. ',
+          interface: 'Interface',
+          audio: 'Audio',
+          subtitles: 'Subtitles',
+          subtitles_description: ' - each phrase is acompanied by subtitles in this language. These settings do not affect the supported languages on a store page. ',
+          voice: 'Voice',
+          voice_description: ' - each phrase is translated and sounded in the specified language. ',
+          add_language: 'Add language',
         },
       },
     },
@@ -95,28 +113,6 @@ export default {
         publishers: {
           label: 'Publishers',
           description: 'You can specify more then one publisher with comma separated list.',
-        },
-        supportedLanguages: {
-          label: 'Supported Languages',
-          description: `What languages does your game support and how exactly are they presented?
-
-          Interface: all in-game menu and interface is displayed in this language.
-          Voice: each phrase is translated and sounded in the specified language.
-          Subtitles: each phrase is accompanied by subtitles in this language.`,
-          interface: 'Interface',
-          audio: 'Audio',
-          subtitles: 'Subtitles',
-        },
-        genres: {
-          label: 'Genre',
-          description: `Select additional genres describes your game. 
-          It will be listed in the top of store page.`,
-          rolePlaying: 'Role Playing',
-        },
-        tags: {
-          label: 'Tags',
-          description: `Any other genre keywords describes your game. Avoid using the genre or platforms provided above.
-          `,
         },
         featuresSupported: {
           label: 'Features',

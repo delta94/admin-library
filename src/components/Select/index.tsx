@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Caption14, BLACK_650, BLACK_800 } from 'styles';
+import { Caption14, BLACK_600, BLACK_800 } from 'styles';
 import { ArrowDownIcon } from 'assets/icons';
 import { SelectOption } from 'types';
 
@@ -69,7 +69,7 @@ const SelectedOption = styled.div`
   cursor: pointer;
   padding: 10px 12px;
   border-radius: 2px;
-  background-color: ${BLACK_650};
+  background-color: ${BLACK_600};
 `;
 
 const StyledIcon = styled(ArrowDownIcon) <{ open: boolean }>`

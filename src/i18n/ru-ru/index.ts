@@ -3,6 +3,7 @@ export default {
   translation: {
     save: 'Save',
     create: 'Create',
+    continue: 'Continue',
     upload: 'Upload',
     replace: 'Replace',
     delete: 'Delete',
@@ -24,6 +25,10 @@ export default {
     login: 'Login',
     logout: 'Logout',
     no_company_name: 'No company name',
+    errors: {
+      empty_field: 'Empty field',
+      not_url: 'Enter URL please',
+    },
     layout: {
       confidential_information: 'This restricted access page contains confidential information. You must have a non-disclosure and/or license agreement covering confidential information to use or access this page.',
       onboarding: {
@@ -38,10 +43,52 @@ export default {
       buttonText: 'Sign In or Sign Up',
     },
     languages: {
-      eng: 'English',
-      rus: 'Russian',
-      deu: 'German',
-      esp: 'Spanish',
+      2: 'English',
+      1: 'Russian',
+      3: 'German',
+    },
+    game: {
+      tabs: {
+        general: 'General',
+        descriptions: 'Descriptions',
+        rating: 'Rating',
+        media: 'Media',
+        price: 'Price',
+        sales: 'Sales',
+        publish: 'Publish',
+      },
+      general: {
+        title: 'General',
+        description_start: 'Here you can customize the look and feel of your game page in the store. Fields marked with ',
+        description_end: ' are mandatory.',
+      },
+      fields: {
+        title: 'Game title',
+        releaseDate: {
+          label: 'Release Date',
+          description: 'Setup release date in your local time zone. If you set this date in the future then we’ll restrict activation until the release date has passed. If not yet released, show \'coming soon\' box on store page. ',
+          display_time: 'Display remaining time before the release',
+        },
+        tags: {
+          label: 'Tags',
+          description: 'Any other tags described your game. Avoid using genre or platforms provided above, max of 10.',
+        },
+        genres: {
+          label: 'Genre',
+          description: 'Select the primary category best describes your game. It will be listed in the navigation menu above the name of your product. You can pick additional tips with tags below. Select up to 3 additional genres describes your game.',
+        },
+        supported_languages: {
+          label: 'Supported Languages',
+          interface_description: ' - all in game menu and interface is displayed in this language. ',
+          interface: 'Interface',
+          audio: 'Audio',
+          subtitles: 'Subtitles',
+          subtitles_description: ' - each phrase is acompanied by subtitles in this language. These settings do not affect the supported languages on a store page. ',
+          voice: 'Voice',
+          voice_description: ' - each phrase is translated and sounded in the specified language. ',
+          add_language: 'Add language',
+        },
+      },
     },
     games: {
       edit: 'Edit game',
@@ -49,9 +96,15 @@ export default {
       name: 'Games',
       description: 'Select an app to view and edit details such as store data, analytic data, and sales reports. You might have different permissions for different apps, depending on the permissions granted by administrators in your partner account.',
       add_game: 'Add game',
+      list_of_games: 'List of games',
+      game_title: 'Game title',
+      price: 'Price',
+      discount: 'Discount',
+      release_date: 'Release Date',
+      status: 'Status',
+      no_games_yet: 'No game has been added yet',
       fields: {
-        title: 'Title',
-        slug: 'Slug',
+        url: 'URL',
         type: 'Type',
         developers: {
           label: 'Developers',
@@ -60,33 +113,6 @@ export default {
         publishers: {
           label: 'Publishers',
           description: 'You can specify more then one publisher with comma separated list.',
-        },
-        supportedLanguages: {
-          label: 'Supported Languages',
-          description: `What languages does your game support and how exactly are they presented?
-
-          Interface: all in-game menu and interface is displayed in this language.
-          Voice: each phrase is translated and sounded in the specified language.
-          Subtitles: each phrase is accompanied by subtitles in this language.`,
-          interface: 'Interface',
-          audio: 'Audio',
-          subtitles: 'Subtitles',
-        },
-        genres: {
-          label: 'Genre',
-          description: `Select additional genres describes your game. 
-          It will be listed in the top of store page.`,
-          rolePlaying: 'Role Playing',
-        },
-        tags: {
-          label: 'Tags',
-          description: `Any other genre keywords describes your game. Avoid using the genre or platforms provided above.
-          `,
-        },
-        releaseDate: {
-          label: 'Release Date',
-          description: `Setup release date in your local time zone.
-          If you set this date in the future then we'll restrict activation until the release date has passed. `,
         },
         featuresSupported: {
           label: 'Features',
@@ -173,12 +199,6 @@ export default {
           covers: 'Covers',
           trailer: 'Trailer',
         },
-      },
-      tabs: {
-        general: 'General',
-        description: 'Description',
-        rating: 'Rating',
-        media: 'Media',
       },
       review_quality_guidelines: {
         title: 'Creating your title',

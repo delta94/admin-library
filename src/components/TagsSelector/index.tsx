@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { BLACK_650 } from 'styles';
+import { BLACK_600 } from 'styles';
 import { Dropdown, TagList } from 'components';
 import { Tag } from 'types';
 
@@ -28,13 +28,13 @@ const TagsSelector = (props: Props) => {
 
   return (
     <Wrapper className={className}>
-      <Dropdown variant="contained" title={t('add')}>
+      <StyledDropdown variant="contained" title={t('add')}>
         <TagList
           onChange={onChange}
           selected={selected}
           tags={tags}
         />
-      </Dropdown>
+      </StyledDropdown>
       {selectedTags.map(chip => (
         <Chip
           key={chip.id}
@@ -52,10 +52,15 @@ export default React.memo(TagsSelector, areEqual);
 
 const Wrapper = styled.div`
   min-height: 122px;
-  background: ${BLACK_650};
+  background: ${BLACK_600};
   border-radius: 2px;
   padding: 12px;
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
+  align-content: flex-start;
+`;
+
+const StyledDropdown = styled(Dropdown)`
+  margin-right: 4px;
 `;

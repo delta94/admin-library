@@ -48,10 +48,6 @@ const Wrapper = styled(Caption12)<{ focus: boolean }>`
   margin-bottom: 4px;
   padding: 3px 8px;
   border-radius: 2px;
-
-  :first-child {
-    margin-right: 0;
-  }
 `;
 
 const StyledCloseIcon = styled(CloseIcon)`

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { BLACK_800, GRAY_200, PURPLE_500, Caption12, WHITE, PURPLE_400 } from 'styles';
 import { ArrowDownIcon } from 'assets/icons';
 
+const ESC_CODE = 27;
+
 const getTitleColor = (open: boolean, variant: 'default' | 'contained') => {
   if (variant === 'contained') return WHITE;
 
@@ -41,6 +43,14 @@ const Dropdown = (props: Props) => {
     setOpen(false);
   };
 
+  const handleEsc = (e: KeyboardEvent) => {
+    if (!open) return;
+
+    if (e.keyCode !== ESC_CODE) return;
+
+    setOpen(false);
+  };
+
   const titleColor = getTitleColor(open, variant);
   const titleBackgroundColor = getTitleBackground(open, variant);
 
@@ -49,6 +59,7 @@ const Dropdown = (props: Props) => {
       className={className}
       onClick={toggleOpen}
       onBlur={handleBlur}
+      onKeyUp={handleEsc as any}
       tabIndex={1}
     >
       <TitleWrapper color={titleColor} backgoundColor={titleBackgroundColor}>

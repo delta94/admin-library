@@ -26,9 +26,9 @@
     "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "^4.0.0-alpha.55",
-    "styled-components": "5.0.1",
     "react": ">=16",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "styled-components": "5.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",

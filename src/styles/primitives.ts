@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { Button } from '@material-ui/core';
 
+import checkIconImage from '../assets/icons/check-icon.svg';
+
 import {
   WHITE,
   PURPLE_500,
@@ -10,7 +12,6 @@ import {
   GRAY_100,
   BLACK_600,
   GRAY_200,
-  BLACK_650,
 } from './colors';
 
 const colorStyles = css<{ color?: string }>`
@@ -189,7 +190,7 @@ export const PurpleOutlinedButton = styled(Button)`
 `;
 
 export const Input = styled.input<{ error?: boolean }>`
-  background-color: ${BLACK_650};
+  background-color: ${BLACK_600};
   color: ${WHITE};
   height: 40px;
   font-size: 14px;
@@ -215,7 +216,7 @@ export const Input = styled.input<{ error?: boolean }>`
   }
 `;
 
-export const Switch = styled.input.attrs({ type: 'checkbox' })`
+export const Switch = styled.input.attrs({ type: 'checkbox' })<{ color?: string }>`
   position: relative;
   width: 36px;
   height: 20px;
@@ -246,11 +247,53 @@ export const Switch = styled.input.attrs({ type: 'checkbox' })`
   }
 
   :checked {
-    background-color: ${PURPLE_500};
+    background-color: ${({ color = PURPLE_500 }) => color};
 
     ::after {
       transform: translateX(calc(100% + 3px));
       background-color: ${WHITE};  
+    }
+  }
+`;
+
+export const Checkbox = styled.input.attrs({ type: 'checkbox' })<{ color?: string }>`
+  position: relative;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  vertical-align: top;
+
+  background: transparent;
+  border: 1px solid ${GRAY_200};
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: all 0.3s ease-in-out;
+
+  ::after {
+    content: "";
+    position: absolute;
+    background-image: url(${checkIconImage});
+    background-size: cover;
+    transition: all 0.3s ease-in-out;
+    width: 6.5px;
+    height: 5px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  :checked {
+    background-color: ${({ color = PURPLE_500 }) => color};
+    border-color: ${({ color = PURPLE_500 }) => color};
+
+    ::after {
+      opacity: 1;
     }
   }
 `;
