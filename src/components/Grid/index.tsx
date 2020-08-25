@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { SCREEN_SIZE } from 'const';
 
-const { TABLET, LAUNCHER, LAPTOP, DESKTOP } = SCREEN_SIZE;
+const { TABLET, LAPTOP, DESKTOP } = SCREEN_SIZE;
 const getWithString = (span: number) => `width: ${(span / 12) * 100}%`;
 
 interface ColProps {
   xs?: number;
   sm?: number;
-  md?: number;
   lg?: number;
   xl?: number;
 }
@@ -18,10 +17,6 @@ export const Col = styled.div<ColProps>`
 
   @media only screen and (min-width: ${TABLET}) {
     ${({ sm }) => sm && getWithString(sm)};
-  }
-
-  @media only screen and (min-width: ${LAUNCHER}) {
-    ${({ md }) => md && getWithString(md)};
   }
 
   @media only screen and (min-width: ${LAPTOP}) {
