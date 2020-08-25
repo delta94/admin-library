@@ -2,6 +2,7 @@ export const BLACK_900 = '#1C1D1F';
 export const BLACK_800 = '#252629';
 export const BLACK_700 = '#36383D';
 export const BLACK_600 = '#494C52';
+export const BLACK_500 = '#53565C';
 
 export const GRAY_200 = '#6E727A';
 export const GRAY_100 = '#83878F';

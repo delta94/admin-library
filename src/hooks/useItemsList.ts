@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 
 import { GetItemsRequest } from '../types/api';
 
+const DEFAULT_ROW_PER_PAGE = 10;
+
 interface Result<T> {
   currentItems: T[];
   onItemCreate: () => void;
@@ -14,15 +16,19 @@ interface Result<T> {
   onChangeItem: () => void;
 }
 
-function useItemsList<T>(
-  request: GetItemsRequest,
-  itemName: string,
-): Result<T> {
+interface Props {
+  request: GetItemsRequest;
+  itemName: string;
+  rowsPerPage?: number;
+}
+
+function useItemsList<T>(props: Props): Result<T> {
+  const { request, itemName, rowsPerPage: initRowsPerPage = DEFAULT_ROW_PER_PAGE } = props;
   const [items, setItems] = useState<T[]>([]);
   const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(initRowsPerPage);
   const start = page * rowsPerPage;
   const end = Math.min(start + rowsPerPage, total);
 
