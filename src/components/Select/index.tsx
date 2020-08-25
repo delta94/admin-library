@@ -32,7 +32,7 @@ const Select = (props: Props) => {
   return (
     <Wrapper className={className}>
       <OptionWrapper onBlur={handleBlur} tabIndex={1}>
-        <SelectedOption onClick={toggleOpen}>
+        <SelectedOption onClick={toggleOpen} className="selected">
           <Caption14>{value.title}</Caption14>
           <IconWrapper>
             <StyledIcon open={open} />
@@ -67,7 +67,7 @@ const SelectedOption = styled.div`
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding: 10px 12px;
+  padding: 8px 12px;
   border-radius: 2px;
   background-color: ${BLACK_600};
 `;
@@ -87,10 +87,10 @@ const Options = styled.div<{ open: boolean }>`
   z-index: 2;
   top: 100%;
   left: 0;
-  right: 0;
   flex-direction: column;
   border-radius: 4px;
   max-height: 216px;
+  min-width: 200px;
   overflow-y: auto;
   padding: 15px 12px;
   background-color: ${BLACK_800};

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Caption12, GRAY_100, WHITE } from 'styles';
+import { Caption12, GRAY_100, WHITE, PURPLE_400 } from 'styles';
 import { SelectOption } from 'types';
 
 interface Props {
@@ -37,6 +37,6 @@ const Wrapper = styled(Caption12)`
   }
 
   :hover {
-    opacity: 0.6;
+    color: ${PURPLE_400};
   }
 `;
