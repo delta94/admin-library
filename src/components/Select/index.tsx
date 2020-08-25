@@ -33,7 +33,7 @@ const Select = (props: Props) => {
     <Wrapper className={className}>
       <OptionWrapper onBlur={handleBlur} tabIndex={1}>
         <SelectedOption onClick={toggleOpen} className="selected">
-          <Caption14>{value.title}</Caption14>
+          <Caption14>{value?.title}</Caption14>
           <IconWrapper>
             <StyledIcon open={open} />
           </IconWrapper>
@@ -42,7 +42,7 @@ const Select = (props: Props) => {
           {options.map(option => (
             <Option
               key={option.value}
-              isSelected={value.value === option.value}
+              isSelected={value?.value === option.value}
               option={option}
               onSelect={handleSelect}
             />
