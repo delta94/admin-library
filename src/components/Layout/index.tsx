@@ -1,9 +1,7 @@
 import React, { ReactNode } from 'react';
-import { CssBaseline, ThemeProvider } from '@material-ui/core';
+import { CssBaseline } from '@material-ui/core';
 import styled from 'styled-components';
-import { BLACK_900, WHITE, BLACK_800 } from 'styles';
-
-import theme from './theme';
+import { BLACK_900, WHITE, BLACK_700 } from 'styles';
 
 interface Props {
   children: ReactNode;
@@ -14,19 +12,17 @@ const Layout = (props: Props) => {
   const { children, sidebar } = props;
 
   return (
-    <ThemeProvider theme={theme}>
-      <Wrapper>
-        <CssBaseline />
-        <Sidebar>
-          {sidebar}
-        </Sidebar>
-        <ContentWrapper>
-          <Main>
-            {children}
-          </Main>
-        </ContentWrapper>
-      </Wrapper>
-    </ThemeProvider>
+    <Wrapper>
+      <CssBaseline />
+      <Sidebar>
+        {sidebar}
+      </Sidebar>
+      <ContentWrapper>
+        <Main>
+          {children}
+        </Main>
+      </ContentWrapper>
+    </Wrapper>
   );
 };
 
@@ -34,7 +30,7 @@ export default React.memo(Layout);
 
 const Wrapper = styled.div`
   display: flex;
-  height: 100%;
+  min-height: 100vh;
   background-color: ${BLACK_900};
   color: ${WHITE};
 `;
@@ -42,15 +38,17 @@ const Wrapper = styled.div`
 const Sidebar = styled.aside`
   width: 260px;
   height: 900px;
-  background-color: ${BLACK_800};
+  background-color: ${BLACK_700};
   flex-shrink: 0;
 `;
 
 const ContentWrapper = styled.div`
-  flex-grow: 1;
   padding: 8px;
+  background-color: ${BLACK_900};
+  flex-grow: 1;
 `;
 
 const Main = styled.main`
-  background-color: ${BLACK_800};
+  background-color: ${BLACK_700};
+  min-height: 884px;
 `;
