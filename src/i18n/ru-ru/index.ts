@@ -2,6 +2,7 @@
 export default {
   translation: {
     save: 'Save',
+    save_changes: 'Save changes',
     create: 'Create',
     continue: 'Continue',
     upload: 'Upload',

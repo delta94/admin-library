@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
-import { Button } from '@material-ui/core';
 
 import checkIconImage from '../assets/icons/check-icon.svg';
+import searchIconImage from '../assets/icons/search-icon.svg';
+import calendarIconImage from '../assets/icons/calendar-icon.svg';
 
 import {
   WHITE,
@@ -156,29 +157,43 @@ export const Caps14Bold = styled(Caps)`
   font-weight: bold;
 `;
 
-export const PurpleButton = styled(Button).attrs({ variant: 'contained', color: 'primary' })`
-  && {
-    background: ${PURPLE_500};
-    border-radius: 2px;
-    font-size: 10px;
-    line-height: 16px;
-    color: ${WHITE};
+const buttonStyles = css<{ color?: string; disabled?: boolean }>`
+  display: inline-flex;
+  align-items: center;
+  background-color: ${({ color = PURPLE_500 }) => color};
+  border: none;
+  border-radius: 3px;
+  outline: none;
+  color: ${WHITE};
 
-    :hover {
-      background: ${PURPLE_600};
-    }
+  cursor: ${({ disabled }) => disabled ? 'not-allowed' : 'pointer'};
+  transition: opacity .3s ease-in-out;
+
+  :active {
+    opacity: 0.7;
   }
 `;
 
-export const PurpleOutlinedButton = styled(Button)`
-&& {
+export const PurpleButton = styled.button`
+  ${buttonStyles}
+  ${textOverflowStyles}
+  font-size: 10px;
+  line-height: 16px;
+  text-transform: uppercase;
+  padding: 12px 20px;
+
+  :hover {
+    background: ${PURPLE_600};
+  }
+`;
+
+export const PurpleOutlinedButton = styled.button.attrs({ color: 'transparent' })`
+  ${buttonStyles}
   border-radius: 2px;
   font-size: 12px;
   line-height: 18px;
   color: ${PURPLE_400};
   text-transform: capitalize;
-  color: ${PURPLE_400};
-  background: transparent;
   border: 1px solid ${PURPLE_400};
   padding: 2px 12px;
 
@@ -186,7 +201,6 @@ export const PurpleOutlinedButton = styled(Button)`
     background: ${PURPLE_400};
     color: ${WHITE};
   }
-}
 `;
 
 export const Input = styled.input<{ error?: boolean }>`
@@ -213,7 +227,16 @@ export const Input = styled.input<{ error?: boolean }>`
 
   ::-webkit-calendar-picker-indicator {
     cursor: pointer;
+    background-image: url(${calendarIconImage});
+    background-repeat: no-repeat;
   }
+
+  ${({ type }) => type === 'search' && `
+    padding-left: 34px;
+    background-image: url(${searchIconImage});
+    background-position: 13px 50%;
+    background-repeat: no-repeat;
+  `}
 `;
 
 export const Switch = styled.input.attrs({ type: 'checkbox' })<{ color?: string }>`
@@ -295,5 +318,9 @@ export const Checkbox = styled.input.attrs({ type: 'checkbox' })<{ color?: strin
     ::after {
       opacity: 1;
     }
+  }
+
+  :hover {
+    border-color: ${({ color = PURPLE_500 }) => color};
   }
 `;

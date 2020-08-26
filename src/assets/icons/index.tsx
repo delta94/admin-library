@@ -8,3 +8,6 @@ export { ReactComponent as RoundedPlusIcon } from './rounded-plus-icon.svg';
 export { ReactComponent as RoundedMinusIcon } from './rounded-minus-icon.svg';
 export { ReactComponent as CheckIcon } from './check-icon.svg';
 export { ReactComponent as DeleteIcon } from './delete-icon.svg';
+export { ReactComponent as PlusIcon } from './plus-icon.svg';
+export { ReactComponent as SearchIcon } from './search-icon.svg';
+export { ReactComponent as CalendarIcon } from './calendar-icon.svg';
