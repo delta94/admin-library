@@ -65,6 +65,12 @@ export default {
       },
       fields: {
         title: 'Game title',
+        developers: {
+          label: 'Developers',
+        },
+        publishers: {
+          label: 'Publishers',
+        },
         releaseDate: {
           label: 'Release Date',
           description: 'Setup release date in your local time zone. If you set this date in the future then we’ll restrict activation until the release date has passed. If not yet released, show \'coming soon\' box on store page. ',
@@ -137,16 +143,7 @@ export default {
       no_games_yet: 'No game has been added yet',
       fields: {
         url: 'URL',
-        type: 'Type',
-        developers: {
-          label: 'Developers',
-          description: 'You can specify more then one developer with comma separated list.',
-        },
-        publishers: {
-          label: 'Publishers',
-          description: 'You can specify more then one publisher with comma separated list.',
-        },
-        
+        type: 'Type',        
         controllers: {
           label: 'Controllers',
           notSupported: 'Not supported',
