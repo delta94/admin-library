@@ -5,7 +5,7 @@ import { BLACK_600 } from 'styles';
 import { Dropdown, TagList } from 'components';
 import { Tag } from 'types';
 
-import Chip from './components/Chip';
+import Chip from '../Chip';
 
 interface Props {
   className?: string;

@@ -87,7 +87,7 @@ const Wrapper = styled.div`
 const TitleWrapper = styled(Caption12) <{ backgoundColor: string }>`
   background-color: ${({ backgoundColor }) => backgoundColor};
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 3px 6px 3px 4px;
   border-radius: 2px;

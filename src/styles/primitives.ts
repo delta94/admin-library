@@ -13,6 +13,7 @@ import {
   GRAY_100,
   BLACK_600,
   GRAY_200,
+  BLACK_500,
 } from './colors';
 
 const colorStyles = css<{ color?: string }>`
@@ -157,7 +158,7 @@ export const Caps14Bold = styled(Caps)`
   font-weight: bold;
 `;
 
-const buttonStyles = css<{ color?: string; disabled?: boolean }>`
+export const buttonStyles = css<{ color?: string; disabled?: boolean }>`
   display: inline-flex;
   align-items: center;
   background-color: ${({ color = PURPLE_500 }) => color};
@@ -192,21 +193,22 @@ export const PurpleOutlinedButton = styled.button.attrs({ color: 'transparent' }
   border-radius: 2px;
   font-size: 12px;
   line-height: 18px;
-  color: ${PURPLE_400};
+  color: ${({ disabled }) => disabled ? GRAY_200 : PURPLE_400};
   text-transform: capitalize;
-  border: 1px solid ${PURPLE_400};
+  border: 1px solid ${({ disabled }) => disabled ? BLACK_500 : PURPLE_400};
   padding: 2px 12px;
 
-  :hover {
-    background: ${PURPLE_400};
-    color: ${WHITE};
-  }
+  ${({ disabled }) => !disabled && `
+    :hover {
+      background: ${PURPLE_400};
+      color: ${WHITE};
+    }
+  `}
 `;
 
-export const Input = styled.input<{ error?: boolean }>`
+export const inputStyles = css<{ error?: boolean }>`
   background-color: ${BLACK_600};
   color: ${WHITE};
-  height: 40px;
   font-size: 14px;
   line-height: 22px;
   border-radius: 2px;
@@ -224,6 +226,11 @@ export const Input = styled.input<{ error?: boolean }>`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   `}
+`;
+
+export const Input = styled.input<{ error?: boolean }>`
+  ${inputStyles}
+  height: 40px;
 
   ::-webkit-calendar-picker-indicator {
     cursor: pointer;
