@@ -21,7 +21,7 @@ const Option = (props: Props) => {
       onClick={handleSelect}
       color={isSelected ? GRAY_100 : WHITE}
     >
-      {option.title}
+      {option.title || '-'}
     </Wrapper>
   );
 };
