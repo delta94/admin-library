@@ -37,7 +37,7 @@ export const Row = styled.div<{ gap?: string }>`
 
   margin: ${({ gap = '0px' }) => `0 calc(-${gap} / 2)`};
 
-  ${Col} {
+  & > ${Col} {
     padding: ${({ gap = '0px' }) => `0 calc(${gap} / 2)`};
   }
 `;
