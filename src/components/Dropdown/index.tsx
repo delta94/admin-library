@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import styled from 'styled-components';
 import { BLACK_800, GRAY_200, PURPLE_500, Caption12, WHITE, PURPLE_400 } from 'styles';
 import { ArrowDownIcon } from 'assets/icons';
+import Tooltip from 'components/Tooltip';
 
 const ESC_CODE = 27;
 
@@ -23,6 +24,7 @@ interface Props {
   variant?: 'default' | 'contained';
   children: ReactNode;
   showToggleIcon?: boolean;
+  tooltip?: string;
 }
 
 const Dropdown = (props: Props) => {
@@ -33,6 +35,7 @@ const Dropdown = (props: Props) => {
     children,
     showToggleIcon = true,
     variant = 'default',
+    tooltip,
   } = props;
 
   const toggleOpen = () => {
@@ -54,18 +57,26 @@ const Dropdown = (props: Props) => {
   const titleColor = getTitleColor(open, variant);
   const titleBackgroundColor = getTitleBackground(open, variant);
 
+  const titleElement = (
+    <TitleWrapper
+      color={titleColor}
+      backgoundColor={titleBackgroundColor}
+      className="dropdown-title"
+    >
+      {showToggleIcon && <StyledIcon open={open} color={titleColor} />}
+      {title}
+    </TitleWrapper>
+  );
+
   return (
     <Wrapper
-      className={className}
+      className={`${className} ${open ? 'opened' : 'closed'}`}
       onClick={toggleOpen}
       onBlur={handleBlur}
       onKeyUp={handleEsc as any}
       tabIndex={1}
     >
-      <TitleWrapper color={titleColor} backgoundColor={titleBackgroundColor}>
-        {showToggleIcon && <StyledIcon open={open} color={titleColor} />}
-        {title}
-      </TitleWrapper>
+      {!!tooltip ? <Tooltip title={tooltip}>{titleElement}</Tooltip> : titleElement}
       <Menu className="dropdown-menu" open={open}>
         {children}
       </Menu>

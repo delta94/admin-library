@@ -26,6 +26,12 @@ export default {
     login: 'Login',
     logout: 'Logout',
     no_company_name: 'No company name',
+    plurals: {
+      genres: 'genre',
+      genres_plural: 'genres',
+      tags: 'tag',
+      tags_plural: 'tags',
+    },
     errors: {
       empty_field: 'Empty field',
       not_url: 'Enter URL please',

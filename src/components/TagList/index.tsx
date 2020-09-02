@@ -14,7 +14,7 @@ interface Props {
 }
 
 const TagList = (props: Props) => {
-  const { className, tags, selected, onChange, limit = tags.length } = props;
+  const { className, tags, selected, onChange, limit = Infinity } = props;
 
   const handleClick = (tag: TagType) => {
     const newSelected = selected.includes(tag.id)
