@@ -12,10 +12,11 @@ interface Props {
   tags: Tag[];
   onChange: (newValue: number[]) => void;
   selected: number[];
+  limit?: number;
 }
 
 const TagsSelector = (props: Props) => {
-  const { className, tags, selected, onChange } = props;
+  const { className, tags, selected, onChange, limit } = props;
   const { t } = useTranslation();
 
   const selectedTags = tags.filter(tag => selected.includes(tag.id));
@@ -33,6 +34,7 @@ const TagsSelector = (props: Props) => {
           onChange={onChange}
           selected={selected}
           tags={tags}
+          limit={limit}
         />
       </StyledDropdown>
       {selectedTags.map(chip => (

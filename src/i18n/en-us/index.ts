@@ -82,7 +82,7 @@ export default {
         },
         genres: {
           label: 'Genre',
-          description: 'Select the primary category best describes your game. It will be listed in the navigation menu above the name of your product. You can pick additional tips with tags below. Select up to 3 additional genres describes your game.',
+          description: 'Select the primary category best describes your game. It will be listed in the navigation menu above the name of your product. You can pick additional tips with tags below. Select up to {{limit}} additional genres describes your game.',
         },
         supported_languages: {
           label: 'Supported Languages',
