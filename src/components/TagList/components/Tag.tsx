@@ -59,7 +59,7 @@ const getHoverColor = (selected: boolean, disabled: boolean) => {
 };
 
 const Wrapper = styled.div<{ selected: boolean; disabled: boolean }>`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-size: 12px;
   line-height: 18px;

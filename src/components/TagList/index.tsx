@@ -48,6 +48,10 @@ const areEqual = (prev: Props, next: Props) => prev === next;
 export default React.memo(TagList, areEqual);
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: default;
   width: 200px;
   max-height: 216px;
   background: ${BLACK_800};
