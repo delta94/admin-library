@@ -8,10 +8,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      enUS,
-      ruRU,
+      'en-US': enUS,
+      'ru-RU': ruRU,
     },
-    fallbackLng: 'enUS',
+    fallbackLng: 'en-US',
     interpolation: {
       escapeValue: false,
     },

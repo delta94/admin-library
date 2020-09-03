@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { BLACK_600 } from 'styles';
+import { BLACK_600, GRAY_200, PURPLE_500 } from 'styles';
 import { Dropdown, TagList } from 'components';
 import { Tag } from 'types';
 
@@ -12,10 +12,12 @@ interface Props {
   tags: Tag[];
   onChange: (newValue: number[]) => void;
   selected: number[];
+  limit?: number;
+  name?: string;
 }
 
 const TagsSelector = (props: Props) => {
-  const { className, tags, selected, onChange } = props;
+  const { className, tags, selected, onChange, limit = Infinity, name = 'tags' } = props;
   const { t } = useTranslation();
 
   const selectedTags = tags.filter(tag => selected.includes(tag.id));
@@ -28,11 +30,17 @@ const TagsSelector = (props: Props) => {
 
   return (
     <Wrapper className={className}>
-      <StyledDropdown variant="contained" title={t('add')}>
+      <StyledDropdown
+        variant="contained"
+        title={t('add')}
+        backgroundColor={selected.length >= limit ? GRAY_200 : PURPLE_500}
+        tooltip={`${limit} ${t(`plurals.${name}`, { count: limit })} max`}
+      >
         <TagList
           onChange={onChange}
           selected={selected}
           tags={tags}
+          limit={limit}
         />
       </StyledDropdown>
       {selectedTags.map(chip => (
@@ -61,6 +69,10 @@ const Wrapper = styled.div`
   align-content: flex-start;
 `;
 
-const StyledDropdown = styled(Dropdown)`
+const StyledDropdown = styled(Dropdown) <{ backgroundColor: string }>`
   margin-right: 4px;
+
+  &.closed .dropdown-title {
+    background-color: ${({ backgroundColor }) => backgroundColor};
+  }
 `;

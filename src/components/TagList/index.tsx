@@ -10,29 +10,36 @@ interface Props {
   tags: TagType[];
   selected: number[];
   onChange: (newSelected: number[]) => void;
+  limit?: number;
 }
 
 const TagList = (props: Props) => {
-  const { className, tags, selected, onChange } = props;
+  const { className, tags, selected, onChange, limit = Infinity } = props;
 
   const handleClick = (tag: TagType) => {
     const newSelected = selected.includes(tag.id)
       ? selected.filter(id => id !== tag.id)
       : [...selected, tag.id];
-    
+
     onChange(newSelected);
   };
 
   return (
     <Wrapper className={className}>
-      {tags.map(tag => (
-        <Tag
-          key={tag.id}
-          tag={tag}
-          selected={!!selected.find(id => tag.id === id)}
-          onClick={handleClick}
-        />
-      ))}
+      {tags.map(tag => {
+        const isSelected = !!selected.find(id => tag.id === id);
+        const disabled = !isSelected && selected.length >= limit;
+
+        return (
+          <Tag
+            key={tag.id}
+            tag={tag}
+            selected={isSelected}
+            disabled={disabled}
+            onClick={handleClick}
+          />
+        );
+      })}
     </Wrapper>
   );
 };
@@ -42,6 +49,10 @@ const areEqual = (prev: Props, next: Props) => prev === next;
 export default React.memo(TagList, areEqual);
 
 const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: default;
   width: 200px;
   max-height: 216px;
   background: ${BLACK_800};

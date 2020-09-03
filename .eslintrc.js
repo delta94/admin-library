@@ -44,6 +44,7 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "max-len": ["error", { "code": 120 }],
     "@typescript-eslint/indent": ["error", 2],
-    "@typescript-eslint/camelcase": "off"
+    "@typescript-eslint/camelcase": "off",
+    "no-extra-boolean-cast": "off"
   },
 };
