@@ -28,7 +28,8 @@ const TagList = (props: Props) => {
     <Wrapper className={className}>
       {tags.map(tag => {
         const isSelected = !!selected.find(id => tag.id === id);
-        const disabled = !isSelected && selected.length >= limit; 
+        const disabled = !isSelected && selected.length >= limit;
+
         return (
           <Tag
             key={tag.id}

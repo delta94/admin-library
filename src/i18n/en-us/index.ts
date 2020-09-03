@@ -84,7 +84,7 @@ export default {
         },
         tags: {
           label: 'Tags',
-          description: 'Any other tags described your game. Avoid using genre or platforms provided above, max of 10.',
+          description: 'Any other tags described your game. Avoid using genre or platforms provided above, max of {{limit}}.',
         },
         genres: {
           label: 'Genre',

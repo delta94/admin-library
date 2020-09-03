@@ -26,6 +26,12 @@ export default {
     login: 'Login',
     logout: 'Logout',
     no_company_name: 'No company name',
+    plurals: {
+      genres: 'genre',
+      genres_plural: 'genres',
+      tags: 'tag',
+      tags_plural: 'tags',
+    },
     errors: {
       empty_field: 'Empty field',
       not_url: 'Enter URL please',
@@ -78,11 +84,11 @@ export default {
         },
         tags: {
           label: 'Tags',
-          description: 'Any other tags described your game. Avoid using genre or platforms provided above, max of 10.',
+          description: 'Any other tags described your game. Avoid using genre or platforms provided above, max of {{limit}}.',
         },
         genres: {
           label: 'Genre',
-          description: 'Select the primary category best describes your game. It will be listed in the navigation menu above the name of your product. You can pick additional tips with tags below. Select up to 3 additional genres describes your game.',
+          description: 'Select the primary category best describes your game. It will be listed in the navigation menu above the name of your product. You can pick additional tips with tags below. Select up to {{limit}} additional genres describes your game.',
         },
         supported_languages: {
           label: 'Supported Languages',
