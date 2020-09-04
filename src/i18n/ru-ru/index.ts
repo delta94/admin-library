@@ -162,6 +162,11 @@ export default {
           discord: 'Discord',
           vkontakte: 'Vkontakte',
         },
+        media: {
+          upload_image: 'Upload image',
+          failed_upload_image: 'Failed to upload image. ',
+          try_again: 'Try again',
+        },
       },
     },
     games: {
