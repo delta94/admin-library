@@ -171,6 +171,13 @@ export default {
           keep_button: 'No, Keep It',
           delete_button: 'Yes, Delete',
         },
+        game_video: {
+          label: 'Game Video',
+          description: 'The YouTube video is used on the game\'s homepage in a screenshot carousel. The very first video may be used in featuring blocks on the main page of the store. Video should be of the highest resolution, up to 1920x1080 px. 16:9 (1.77) aspect ratio is preferred, but 4:3 (1.33) aspect ratio  is also acceptable.',
+          warning: 'In the first video, you need to move to the gameplay or action as quickly as possible. Slow theatrical productions are fine for a YouTube cinematic trailer, but it\'s much more important for buyers to see what the gameplay is like.',
+          youtube_link: 'Youtube link',
+          add_link: 'Add YouTube Link',
+        },
       },
     },
     games: {

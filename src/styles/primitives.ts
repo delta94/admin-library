@@ -331,3 +331,26 @@ export const Checkbox = styled.input.attrs({ type: 'checkbox' })<{ color?: strin
     border-color: ${({ color = PURPLE_500 }) => color};
   }
 `;
+
+export const SquareIconButton = styled.button`
+  ${buttonStyles}
+  background-color: transparent;
+  border-radius: 2px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid ${BLACK_500};
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+
+  path {
+    transition: all 0.3s ease-in-out;
+  }
+
+  :hover {
+    border: 1px solid ${({ color }) => color};
+
+    path {
+      fill:  ${({ color }) => color};
+    }
+  }
+`;
