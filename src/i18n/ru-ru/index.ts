@@ -162,6 +162,15 @@ export default {
           discord: 'Discord',
           vkontakte: 'Vkontakte',
         },
+        media: {
+          upload_image: 'Upload image',
+          failed_upload_image: 'Failed to upload image. ',
+          try_again: 'Try again',
+          deleting_image_title: 'Deleting Cover Image',
+          deleting_image_description: 'Are you sure you want to delete the cover image?',
+          keep_button: 'No, Keep It',
+          delete_button: 'Yes, Delete',
+        },
       },
     },
     games: {

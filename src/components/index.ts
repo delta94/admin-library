@@ -9,3 +9,5 @@ export { default as TagList } from './TagList';
 export { default as TagsSelector } from './TagsSelector';
 export { default as Grid } from './Grid';
 export { default as Chip } from './Chip';
+export { default as Spinner } from './Spinner';
+export { default as Modal } from './Modal';

@@ -1,12 +1,23 @@
 import React from 'react';
-import { Box, CircularProgress } from '@material-ui/core';
+import styled from 'styled-components';
+import { Spinner } from 'components';
 
-const Loader = () => {
-  return (
-    <Box display="flex" justifyContent="center" paddingTop="40px">
-      <CircularProgress color="primary" />
-    </Box>
-  );
-};
+interface Props {
+  className?: string;
+}
 
-export default React.memo(Loader);
+const Loader = (props: Props) => (
+  <Wrapper className={props.className}>
+    <Spinner />
+  </Wrapper>
+);
+
+const areEqual = (prev: Props, next: Props) => prev === next;
+
+export default React.memo(Loader, areEqual);
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+`;
