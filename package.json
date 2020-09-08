@@ -1,6 +1,6 @@
 {
   "name": "admin-library",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Simple example of react library",
   "license": "MIT",
   "main": "dist/index.js",
